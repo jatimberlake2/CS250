@@ -1,0 +1,42 @@
+import sys
+
+def new_phonebook():
+	return []
+
+def add_to_phonebook(phonebook, name, number):
+	phonebook.append([name, number])
+
+def lookup(phonebook, number):
+	for entry in phonebook:
+		if entry[0] == name:
+			return entry[1]
+	return "Private Number"
+def reverse_lookup(phonebook, number):
+	for entry in phonebook:
+		if entry[1] == number:
+			return entry[0]
+	return "Unknown"
+
+def size(phonebook):
+	return len(phonebook)
+
+def to_string(phonebook):
+	s = ''
+	for entry in phonebook:
+		s += entry[0] + ' ' + entry[1] + '\n'
+	return s
+
+def main(argv):
+	pb = new_phonebook()
+	add_to_phonebook(pb, "Nicholas Kraft", "205-555-5555")
+	add_to_phonebook(pb, "Elizabeth Williams", "256-555-5555")
+	print(to_string(pb), end = '')
+	print(lookup(pb, "Nicholas Kraft"))
+	print(lookup(pb, "Jonathan Corley"))
+	print(reverse_lookup(pb, "256-555-5555"))
+	print(reverse_lookup(pb, "812-555-5555"))
+
+	return 0
+
+if __name__ == '__main__':
+	sys.exit(main(sys.argv))
